@@ -12,7 +12,7 @@ Returns points for specified radius and IP address.
 
 ```json
 {
-    "rad": "integer, radius in meters (default 1000), 10000 max"
+    "rad": "integer, radius in meters (default 1000), 10000 max",
     "ip": "valid IP address (optional)"
 }
 ```
@@ -23,7 +23,7 @@ Returns points for specified radius and IP address.
 ```json
 {
     "rad": 10000,
-    "ip": 127.0.0.1
+    "ip": "127.0.0.1"
 }
 ```
 
