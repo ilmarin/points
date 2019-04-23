@@ -1,0 +1,9 @@
+# IDE settings
+/nbproject
+.settings
+.project
+.buildpath
+.idea
+
+/vendor
+.env

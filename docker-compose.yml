@@ -1,0 +1,39 @@
+version: '3'
+services:
+    points:
+        container_name: points
+        networks:
+            - points-locbridge
+        build: ./docker
+        command: bash -c 'chmod -R 777 /var/www/html/points/storage && /usr/sbin/apache2ctl -D FOREGROUND'
+        restart: always
+        volumes:
+            - '.:/var/www/html/points'
+            - './docker/php.ini:/usr/local/etc/php/php.ini'
+        environment:
+            - TERM=xterm
+            - LC_ALL=C
+        ports:
+            - '8080:80'  
+            - '8443:443'
+    percona-points:
+        image: percona:5.7
+        container_name: percona_points
+        restart: always
+        networks:
+          - points-locbridge
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=points
+        ports:
+            - '33066:3306'
+    redis-points:
+        image: redis:5
+        container_name: redis_points
+        restart: always
+        networks:
+          - points-locbridge       
+        command: 'redis-server --appendonly yes'
+networks:
+    points-locbridge:
+        driver: bridge
