@@ -14,10 +14,10 @@ With this API you can:
 1. In project folder execute `docker-compose up -d`
 2. Enter container with `docker exec -ti points bash`
 3. Execute `composer install`
-4. Execute `./artisan migrate --force` to run database migrations
 4. Rename `.env.example` file into `.env`
-5. In `.env` file write your `IP_STACK_KEY` and `API_TOKEN`
-6. Check api status by address `http://localhost:8080/api/v1/health?api_token=123`
+5. Execute `./artisan migrate --force` to run database migrations
+6. In `.env` file write your `IP_STACK_KEY` and `API_TOKEN`
+7. Check api status by address `http://localhost:8080/api/v1/health?api_token=123`
 
 ## Tests 
 
